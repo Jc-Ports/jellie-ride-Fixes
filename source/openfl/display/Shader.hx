@@ -484,12 +484,10 @@ class Shader
 		{
 			var gl = __context.gl;
 
-			var prefix = "#version 150\n";
-
 			#if (js && html5)
-			prefix = (precisionHint == FULL ? "precision mediump float;\n" : "precision lowp float;\n");
+			var prefix = (precisionHint == FULL ? "precision mediump float;\n" : "precision lowp float;\n");
 			#else
-			prefix += "#ifdef GL_ES\n"
+			var prefix = "#ifdef GL_ES\n"
 				+ (precisionHint == FULL ? "#ifdef GL_FRAGMENT_PRECISION_HIGH\n"
 					+ "precision highp float;\n"
 					+ "#else\n"

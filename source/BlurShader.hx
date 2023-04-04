@@ -31,7 +31,7 @@ class BlurShader extends GraphicsShader
 		uniform bool hasColorTransform;
 		vec4 flixel_texture2D(sampler2D bitmap, vec2 coord)
 		{
-			vec4 color = texture(bitmap, coord);
+			vec4 color = texture2D(bitmap, coord);
 			if (!hasTransform)
 			{
 				return color;
@@ -60,7 +60,7 @@ class BlurShader extends GraphicsShader
 
 		vec4 flixel_texture2D(sampler2D bitmap, vec2 coord, float bias)
 		{
-			vec4 color = texture(bitmap, coord, bias);
+			vec4 color = texture2D(bitmap, coord, bias);
 			if (!hasTransform)
 			{
 				return color;
